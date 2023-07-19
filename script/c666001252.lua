@@ -46,14 +46,12 @@ function s.posop(e,tp,eg,ep,ev,re,r,rp)
 		Duel.HintSelection(g)
 		Duel.ChangePosition(g,POS_FACEDOWN_DEFENSE)
 		local c=e:GetHandler()
+		local dg=Duel.GetMatchingGroup(Card.IsFacedown,tp,0,LOCATION_SZONE,nil)
 		if ((tc1:IsLevelAbove(7) and tc1:IsFacedown()) or (tc2:IsLevelAbove(7) and tc2:IsFacedown()))
-			and Duel.SelectYesNo(tp,aux.Stringid(id,0)) then
-			local dg=Duel.GetMatchingGroup(Card.IsFacedown,tp,0,LOCATION_SZONE,nil)
-			if #dg>0 then
-				local sg=dg:Select(tp,1,1,nil)
-				Duel.HintSelection(sg)
-				Duel.Destroy(sg,REASON_EFFECT)
-			end
+			and Duel.SelectYesNo(tp,aux.Stringid(id,0)) and #dg>0 then
+			local sg=dg:Select(tp,1,1,nil)
+			Duel.HintSelection(sg)
+			Duel.Destroy(sg,REASON_EFFECT)
 		end
 	end
 end
