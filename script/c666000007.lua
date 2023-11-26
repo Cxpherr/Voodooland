@@ -52,8 +52,7 @@ function s.operation(e,tp,eg,ep,ev,re,r,rp)
         c:RegisterEffect(e1)
         Duel.BreakEffect()
         local lm=Duel.GetMatchingGroup(aux.FaceupFilter(Card.IsAttribute,ATTRIBUTE_LIGHT),tp,0,LOCATION_MZONE,nil)
-        --Duel.IsExistingMatchingCard(aux.FaceupFilter(Card.IsAttribute,ATTRIBUTE_LIGHT),tp,0,LOCATION_MZONE,1,nil)
-        if td>0 and #lm>0 then
+        if g=3 and td>0 and #lm>0 then
                 Duel.Damage(1-tp,700,REASON_EFFECT)
                 Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DESTROY)
                 local dg=lm:Select(tp,1,1,nil)
